@@ -1,0 +1,24 @@
+{% extends 'gallery/layout.html' %}
+{% block title %}
+    Delete {{product.name}}
+{% endblock %}
+
+{% block body %}
+<div class="max-w-[1320px]">
+    <div class="max-w-[1170px] mx-auto">
+        <p class="text-[20px] m-3">Are you sure you want to delete '{{product.name}}'?</p>
+        <div class="flex">
+            <form method="post">
+                {% csrf_token %}
+                <button class="py-2 px-4 rounded-sm m-3 shadow-sm bg-gray-500 hover:bg-zinc-500">Yes, Delete</button>
+            </form>
+            <a href="{% url 'product_list' %}">
+                <button class="py-2 px-9 rounded-sm m-3 shadow-sm bg-gray-500 hover:bg-zinc-500">No</button>
+    
+            </a>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

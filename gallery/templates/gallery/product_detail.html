@@ -1,0 +1,21 @@
+{% extends 'gallery/layout.html' %}
+
+{% block title %}
+    {{product.name}}
+{% endblock %}
+{% block body %}
+<div class="max-w-[1320px]">
+    <div class="max-w-[1170px] mx-auto mt-4">
+        <div>
+            <h1 class="font-serif text-[30px] text-center pb-3">{{product.name}} - Blog</h1>
+            <div class="flex justify-center items-center pb-3">
+                <img src="{{product.image.url}}" alt="" class="max-h-[350px]">
+            </div>
+            <p class="text-[20px]">{{product.description}}</p>
+            <a href="{% url 'edit_product' product.pk %}"><button class="py-2 px-8 rounded-sm m-3 shadow-sm bg-gray-500 hover:bg-zinc-500">Edit</button></a>
+            <a href="{% url 'delete_product' product.pk %}"><button class="py-2 px-6 rounded-sm m-3 shadow-sm hover:bg-zinc-500 bg-gray-500">Delete</button></a>
+            <a href="{% url 'product_list' %}"><button class="py-2 px-3 rounded-sm m-3 shadow-sm hover:bg-zinc-500 bg-gray-500">Back to Home Page</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
